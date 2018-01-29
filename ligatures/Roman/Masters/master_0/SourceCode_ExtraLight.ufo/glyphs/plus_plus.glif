@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="plus_plus" format="1">
+  <advance width="1200"/>
+  <outline>
+    <contour>
+      <point x="118" y="316" type="line"/>
+      <point x="1082" y="316" type="line"/>
+      <point x="1082" y="344" type="line"/>
+      <point x="118" y="344" type="line"/>
+    </contour>
+    <component base="plus" xOffset="519"/>
+    <component base="plus" xOffset="81"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 06:37:07 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
+</glyph>

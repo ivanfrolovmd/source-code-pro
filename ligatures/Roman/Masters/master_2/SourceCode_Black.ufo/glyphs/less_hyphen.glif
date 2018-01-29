@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="less_hyphen" format="1">
+  <advance width="1200"/>
+  <outline>
+    <contour>
+      <point x="23" y="332" type="line"/>
+      <point x="506" y="24" type="line"/>
+      <point x="506" y="178" type="line"/>
+      <point x="353" y="270" type="line"/>
+      <point x="1131" y="270" type="line"/>
+      <point x="1131" y="390" type="line"/>
+      <point x="347" y="390" type="line"/>
+      <point x="506" y="486" type="line"/>
+      <point x="506" y="640" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 06:59:11 +0000</string>
+    </dict>
+  </lib>
+</glyph>

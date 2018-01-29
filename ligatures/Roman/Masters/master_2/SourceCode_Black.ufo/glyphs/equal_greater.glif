@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="equal_greater" format="1">
+  <advance width="1200"/>
+  <outline>
+    <contour>
+      <point x="694" y="640" type="line"/>
+      <point x="694" y="486" type="line"/>
+      <point x="946" y="330" type="line"/>
+      <point x="694" y="178" type="line"/>
+      <point x="694" y="24" type="line"/>
+      <point x="1177" y="332" type="line"/>
+    </contour>
+    <contour>
+      <point x="64" y="390" type="line"/>
+      <point x="880" y="390" type="line"/>
+      <point x="880" y="510" type="line"/>
+      <point x="64" y="510" type="line"/>
+    </contour>
+    <contour>
+      <point x="64" y="153" type="line"/>
+      <point x="880" y="153" type="line"/>
+      <point x="880" y="271" type="line"/>
+      <point x="64" y="271" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 06:59:11 +0000</string>
+    </dict>
+  </lib>
+</glyph>

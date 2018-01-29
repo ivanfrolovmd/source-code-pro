@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="colon_colon" format="1">
+  <advance width="1200"/>
+  <outline>
+    <component base="period" xOffset="510" yOffset="386"/>
+    <component base="period" xOffset="510"/>
+    <component base="period" xOffset="90" yOffset="386"/>
+    <component base="period" xOffset="90"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 06:13:30 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
+</glyph>

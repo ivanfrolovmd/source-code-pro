@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="equal_less_less" format="1">
+  <advance width="1800"/>
+  <outline>
+    <contour>
+      <point x="98" y="416" type="line"/>
+      <point x="920" y="416" type="line"/>
+      <point x="920" y="444" type="line"/>
+      <point x="98" y="444" type="line"/>
+    </contour>
+    <contour>
+      <point x="98" y="216" type="line"/>
+      <point x="924" y="216" type="line"/>
+      <point x="924" y="244" type="line"/>
+      <point x="98" y="244" type="line"/>
+    </contour>
+    <component base="less_less"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 06:00:14 +0000</string>
+    </dict>
+  </lib>
+</glyph>

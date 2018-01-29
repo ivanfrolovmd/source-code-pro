@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="hyphen_greater_greater" format="1">
+  <advance width="1800"/>
+  <outline>
+    <contour>
+      <point x="64" y="270" type="line"/>
+      <point x="1567" y="270" type="line"/>
+      <point x="1567" y="390" type="line"/>
+      <point x="64" y="390" type="line"/>
+    </contour>
+    <contour>
+      <point x="1282" y="347" type="line"/>
+      <point x="661" y="640" type="line"/>
+      <point x="661" y="486" type="line"/>
+      <point x="1053" y="334" type="line"/>
+      <point x="1053" y="330" type="line"/>
+      <point x="661" y="178" type="line"/>
+      <point x="661" y="24" type="line"/>
+      <point x="1282" y="316" type="line"/>
+    </contour>
+    <contour>
+      <point x="1121" y="640" type="line"/>
+      <point x="1121" y="516" type="line"/>
+      <point x="1513" y="334" type="line"/>
+      <point x="1513" y="330" type="line"/>
+      <point x="1121" y="138" type="line"/>
+      <point x="1121" y="24" type="line"/>
+      <point x="1777" y="332" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 06:59:11 +0000</string>
+    </dict>
+  </lib>
+</glyph>
