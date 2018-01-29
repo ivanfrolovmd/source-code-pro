@@ -7,3 +7,7 @@ ItalicMasters/colors_1
 ItalicMasters/colors_2
 *.otf
 current.fpr
+
+.idea
+build
+.gradle

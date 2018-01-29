@@ -1,0 +1,154 @@
+def workDir = file("$buildDir/prep")
+
+task prepareLigatures {
+  doLast {
+    copy {
+      from "$projectDir/ligatures"
+      into "$buildDir/ligatures"
+    }
+
+    fileTree(dir: "$buildDir/ligatures", include: "**/*.glif").each { file ->
+      // TODO determine xFactor from glyph name? (number of underscores)
+      def WIDTH = 600
+
+      def glyph = new XmlParser().parse(file)
+      glyph.lib.each { glyph.remove(it) }
+
+      int xFactor = (glyph.advance.'@width'[0] as int) / WIDTH
+      if (xFactor > 1) {
+        glyph.advance*.'@width' = 600
+        glyph.outline.contour.point.each { it.'@x' = (it.'@x' as int) - WIDTH * (xFactor - 1) }
+        glyph.outline.component.each {
+          if (it.@xOffset) {
+            it.'@xOffset' = (it.'@xOffset' as int) - WIDTH * (xFactor - 1)
+          }
+        }
+      }
+
+      file.text = groovy.xml.XmlUtil.serialize(glyph)
+    }
+  }
+}
+
+task copyOriginals(type: Copy) {
+  dependsOn 'prepareLigatures'
+  from(projectDir) {
+    exclude "build"
+    exclude ".*"
+    exclude "target"
+    exclude "ligatures"
+    exclude "*gradle*"
+  }
+  from "$buildDir/ligatures"
+  into workDir
+}
+
+task fillInContentPlist(dependsOn: 'copyOriginals') {
+  doLast {
+    fileTree(dir: workDir, include: "**/master_*/**/contents.plist").each { File plist ->
+      File originalDir = file("$projectDir/ligatures/" + workDir.toPath().relativize(plist.parentFile.toPath()))
+      def glyphs = originalDir.list() ?: []
+      def keys = glyphs.collect { name ->
+        "<key>${name - '.glif'}</key><string>$name</string>"
+      }.join()
+      plist.text = plist.text.replace("</dict>", "$keys\n</dict>")
+    }
+  }
+}
+
+task fillGlyphOrderDB(dependsOn: 'copyOriginals') {
+  doLast {
+    def all = fileTree(dir: "$projectDir/ligatures", include: "**/*.glif").collect { it.name - '.glif' } as Set
+    all = all.sort()
+
+    def str = all.sort().withIndex().collect { el, ix -> "uni${Integer.toHexString(0xE100 + ix).toUpperCase()} $el" }.join("\n")
+    fileTree(dir: workDir, include: "**/GlyphOrderAndAliasDB").each { file ->
+      file.text = file.text + str + "\n"
+    }
+
+    def arrays = (0..all.size() - 1).collect { ix -> "<string>uni${Integer.toHexString(0xE100 + ix).toUpperCase()}</string>" }.join("\n")
+    fileTree(dir: workDir, include: "**/master_*/**/lib.plist").each { file ->
+      file.text = file.text.replace("</array>", "$arrays\n</array>")
+    }
+  }
+}
+
+task buildLigatureLookupTable(dependsOn: 'copyOriginals') {
+  doLast {
+    def all = fileTree(dir: "$projectDir/ligatures", include: "**/*.glif").collect { it.name - '.glif' } as Set
+    all = all.sort()
+
+    def contents = all.collect { String name ->
+      def parts = name.split("_")
+      def size = parts.length
+
+      if (size < 2) return ""
+
+      def ignores = "ignore sub ${parts[0]} ${parts[0]}' ${(2..size).collect { parts[it - 1] }.join(" ")};\n" +
+          "ignore sub ${parts[0]}' ${(2..size).collect { parts[it - 1] }.join(" ")} ${parts[size - 1]};\n"
+
+      def lookups = (size..1).collect { subIx ->
+        "sub ${"LIG " * (subIx - 1)}${parts[subIx - 1]}' ${(subIx..<size).collect { parts[it] }.join(" ")} by ${subIx == size ? name : "LIG"};\n"
+      }.join()
+
+      "lookup $name {\n$ignores$lookups} $name;\n"
+    }.join("\n")
+
+    file("$workDir/ligatures.fea").text = """
+feature calt {
+$contents
+} calt;
+"""
+    file("$workDir/features.fea") << "include (../../../../ligatures.fea);\n"
+  }
+}
+
+task prepare {
+  dependsOn 'copyOriginals', 'fillInContentPlist', 'fillGlyphOrderDB', 'buildLigatureLookupTable'
+}
+
+task buildInstances {
+  dependsOn 'prepare'
+  doLast {
+    fileTree(dir: workDir, include: "**/Masters/**/*.designspace").each { File file ->
+      exec {
+        commandLine "makeInstancesUFO", "-d", file.absolutePath
+      }
+    }
+  }
+}
+
+task buildFonts {
+  dependsOn 'buildInstances'
+  doLast {
+    exec {
+      commandLine "$workDir/build.sh"
+      workingDir workDir
+    }
+  }
+}
+
+task prepareForEditing(type: Copy) {
+  from(projectDir) {
+    include "Roman/Masters/**/*.ufo/**"
+    include "Italic/Masters/**/*.ufo/**"
+  }
+  from "$projectDir/ligatures"
+  into "$buildDir/edit"
+
+  doLast {
+    println "Edit fonts in $buildDir/edit"
+  }
+}
+
+task finishEditing(type: Copy) {
+  def editDir = file("$buildDir/edit")
+
+  from(editDir) {
+    exclude {
+      def projectFile = file("$projectDir/${editDir.toPath().relativize(it.file.toPath())}")
+      projectFile.isFile() && projectFile.exists()
+    }
+  }
+  into "$projectDir/ligatures"
+}

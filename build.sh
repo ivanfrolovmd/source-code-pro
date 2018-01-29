@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
-family=SourceCodePro
+set -eu
+
+family=SourceCodeProLigatures
 romanWeights='Black Bold ExtraLight Light Medium Regular Semibold'
 italicWeights='BlackIt BoldIt ExtraLightIt LightIt MediumIt It SemiboldIt'
 
@@ -20,16 +22,16 @@ for w in $romanWeights
 do
   font_path=Roman/Instances/$w/font
   makeotf -f $font_path.ufo -r -ci "$UVS" -o $otfDir/$family-$w.otf
-  makeotf -f $font_path.ttf -r -ci "$UVS" -o $ttfDir/$family-$w.ttf -ff $font_path.ufo/features.fea
+#  makeotf -f $font_path.ttf -r -ci "$UVS" -o $ttfDir/$family-$w.ttf -ff $font_path.ufo/features.fea
   "$addSVG" $otfDir/$family-$w.otf svg
-  "$addSVG" $ttfDir/$family-$w.ttf svg
+#  "$addSVG" $ttfDir/$family-$w.ttf svg
 done
 
 for w in $italicWeights
 do
   font_path=Italic/Instances/$w/font
   makeotf -f $font_path.ufo -r -ci "$UVS" -o $otfDir/$family-$w.otf
-  makeotf -f $font_path.ttf -r -ci "$UVS" -o $ttfDir/$family-$w.ttf -ff $font_path.ufo/features.fea
+#  makeotf -f $font_path.ttf -r -ci "$UVS" -o $ttfDir/$family-$w.ttf -ff $font_path.ufo/features.fea
   "$addSVG" $otfDir/$family-$w.otf svg
-  "$addSVG" $ttfDir/$family-$w.ttf svg
+#  "$addSVG" $ttfDir/$family-$w.ttf svg
 done

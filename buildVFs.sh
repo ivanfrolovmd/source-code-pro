@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -eu
+
 # path to Python script that adds the SVG table
 addSVG=$(cd $(dirname "$0") && pwd -P)/addSVGtable.py
 
