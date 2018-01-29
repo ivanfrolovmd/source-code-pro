@@ -26,7 +26,7 @@ task prepareLigatures {
         glyph.outline.contour.point.each { it.'@x' = (it.'@x' as int) - WIDTH * (xFactor - 1) }
         glyph.outline.component.each {
           def deltaError = (((it.'@xScale' ?: 1) as double) < 0 ? -1 : 1) * (((widths[it.'@base'] ?: WIDTH) as int) - WIDTH)
-          if (it.@xOffset) {
+          if (it.'@xOffset') {
             it.'@xOffset' = (it.'@xOffset' as int) - WIDTH * (xFactor - 1) + deltaError
           } else {
             it.'@xOffset' = 0 - WIDTH * (xFactor - 1) + deltaError
