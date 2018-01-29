@@ -2,7 +2,35 @@
 <glyph name="hyphen_less_less" format="1">
   <advance width="1800"/>
   <outline>
-    <component base="less_less"/>
-    <component base="minus" xOffset="-169" xScale="2.725"/>
+    <contour>
+      <point x="1499" y="84" type="line"/>
+      <point x="1257" y="316" type="line"/>
+      <point x="1494" y="316" type="line"/>
+      <point x="1750" y="64" type="line"/>
+      <point x="1770" y="84" type="line"/>
+      <point x="1516" y="328" type="line"/>
+      <point x="1516" y="332" type="line"/>
+      <point x="1770" y="576" type="line"/>
+      <point x="1750" y="596" type="line"/>
+      <point x="1494" y="344" type="line"/>
+      <point x="1257" y="344" type="line"/>
+      <point x="1499" y="576" type="line"/>
+      <point x="1479" y="596" type="line"/>
+      <point x="1223" y="344" type="line"/>
+      <point x="30" y="344" type="line"/>
+      <point x="30" y="316" type="line"/>
+      <point x="1223" y="316" type="line"/>
+      <point x="1479" y="64" type="line"/>
+    </contour>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 12:52:29 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
 </glyph>

@@ -2,7 +2,33 @@
 <glyph name="less_hyphen_greater" format="1">
   <advance width="1800"/>
   <outline>
-    <component base="hyphen_greater"/>
-    <component base="less_hyphen" xOffset="600"/>
+    <contour>
+      <point x="308" y="84" type="line"/>
+      <point x="66" y="316" type="line"/>
+      <point x="1734" y="316" type="line"/>
+      <point x="1492" y="84" type="line"/>
+      <point x="1512" y="64" type="line"/>
+      <point x="1780" y="328" type="line"/>
+      <point x="1780" y="332" type="line"/>
+      <point x="1512" y="596" type="line"/>
+      <point x="1492" y="576" type="line"/>
+      <point x="1734" y="344" type="line"/>
+      <point x="66" y="344" type="line"/>
+      <point x="308" y="576" type="line"/>
+      <point x="288" y="596" type="line"/>
+      <point x="20" y="332" type="line"/>
+      <point x="20" y="328" type="line"/>
+      <point x="288" y="64" type="line"/>
+    </contour>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 12:54:44 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
 </glyph>

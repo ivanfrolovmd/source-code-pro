@@ -3,35 +3,34 @@
   <advance width="1800"/>
   <outline>
     <contour>
-      <point x="64" y="270" type="line"/>
-      <point x="1567" y="270" type="line"/>
-      <point x="1567" y="390" type="line"/>
-      <point x="64" y="390" type="line"/>
-    </contour>
-    <contour>
-      <point x="1282" y="347" type="line"/>
-      <point x="661" y="640" type="line"/>
-      <point x="661" y="486" type="line"/>
-      <point x="1053" y="334" type="line"/>
-      <point x="1053" y="330" type="line"/>
-      <point x="661" y="178" type="line"/>
-      <point x="661" y="24" type="line"/>
-      <point x="1282" y="316" type="line"/>
-    </contour>
-    <contour>
-      <point x="1121" y="640" type="line"/>
-      <point x="1121" y="516" type="line"/>
-      <point x="1513" y="334" type="line"/>
-      <point x="1513" y="330" type="line"/>
-      <point x="1121" y="138" type="line"/>
-      <point x="1121" y="24" type="line"/>
-      <point x="1777" y="332" type="line"/>
+      <point x="1369" y="263" type="line"/>
+      <point x="1558" y="263" type="line"/>
+      <point x="1428" y="153" type="line"/>
+      <point x="1508" y="61" type="line"/>
+      <point x="1788" y="329" type="line"/>
+      <point x="1788" y="333" type="line"/>
+      <point x="1508" y="601" type="line"/>
+      <point x="1428" y="509" type="line"/>
+      <point x="1558" y="399" type="line"/>
+      <point x="1369" y="399" type="line"/>
+      <point x="1158" y="601" type="line"/>
+      <point x="1078" y="509" type="line"/>
+      <point x="1208" y="399" type="line"/>
+      <point x="32" y="399" type="line"/>
+      <point x="32" y="263" type="line"/>
+      <point x="1208" y="263" type="line"/>
+      <point x="1078" y="153" type="line"/>
+      <point x="1158" y="61" type="line"/>
     </contour>
   </outline>
   <lib>
     <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-29 06:59:11 +0000</string>
+      <string>2018-01-29 12:56:01 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
     </dict>
   </lib>
 </glyph>

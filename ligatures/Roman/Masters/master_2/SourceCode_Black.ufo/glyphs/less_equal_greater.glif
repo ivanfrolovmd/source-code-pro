@@ -2,7 +2,43 @@
 <glyph name="less_equal_greater" format="1">
   <advance width="1800"/>
   <outline>
-    <component base="equal_greater" xOffset="600" yOffset="662" xScale="-1" yScale="-1"/>
-    <component base="equal_greater"/>
+    <contour>
+      <point x="372" y="152" type="line"/>
+      <point x="308" y="206" type="line"/>
+      <point x="1492" y="206" type="line"/>
+      <point x="1428" y="152" type="line"/>
+      <point x="1508" y="60" type="line"/>
+      <point x="1788" y="328" type="line"/>
+      <point x="1788" y="332" type="line"/>
+      <point x="1508" y="600" type="line"/>
+      <point x="1428" y="508" type="line"/>
+      <point x="1492" y="454" type="line"/>
+      <point x="308" y="454" type="line"/>
+      <point x="372" y="508" type="line"/>
+      <point x="292" y="600" type="line"/>
+      <point x="12" y="332" type="line"/>
+      <point x="12" y="328" type="line"/>
+      <point x="292" y="60" type="line"/>
+    </contour>
+    <contour>
+      <point x="164" y="328" type="line"/>
+      <point x="164" y="332" type="line"/>
+      <point x="192" y="356" type="line"/>
+      <point x="1608" y="356" type="line"/>
+      <point x="1636" y="332" type="line"/>
+      <point x="1636" y="328" type="line"/>
+      <point x="1608" y="304" type="line"/>
+      <point x="192" y="304" type="line"/>
+    </contour>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 12:57:45 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
 </glyph>

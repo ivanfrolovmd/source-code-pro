@@ -2,32 +2,16 @@
 <glyph name="greater_equal_greater" format="1">
   <advance width="1800"/>
   <outline>
-    <contour>
-      <point x="327" y="416" type="line"/>
-      <point x="1531" y="416" type="line"/>
-      <point x="1531" y="444" type="line"/>
-      <point x="327" y="444" type="line"/>
-    </contour>
-    <contour>
-      <point x="327" y="216" type="line"/>
-      <point x="1531" y="216" type="line"/>
-      <point x="1531" y="244" type="line"/>
-      <point x="327" y="244" type="line"/>
-    </contour>
-    <contour>
-      <point x="1314" y="62" type="line"/>
-      <point x="1699" y="332" type="line"/>
-      <point x="1314" y="602" type="line"/>
-      <point x="1314" y="566" type="line"/>
-      <point x="1647" y="332" type="line"/>
-      <point x="1314" y="98" type="line"/>
-    </contour>
-    <component base="greater"/>
+    <component base="less_equal_less" xOffset="1800" xScale="-1"/>
   </outline>
   <lib>
     <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-29 06:00:14 +0000</string>
+      <string>2018-01-29 11:29:38 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
     </dict>
   </lib>
 </glyph>

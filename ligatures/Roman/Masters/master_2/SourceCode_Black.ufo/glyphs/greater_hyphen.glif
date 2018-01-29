@@ -2,6 +2,16 @@
 <glyph name="greater_hyphen" format="1">
   <advance width="1200"/>
   <outline>
-    <component base="hyphen_less" yOffset="664" xScale="-1" yScale="-1"/>
+    <component base="hyphen_less" xOffset="1200" xScale="-1"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-29 12:02:25 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
 </glyph>
