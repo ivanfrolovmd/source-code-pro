@@ -1,4 +1,5 @@
 def workDir = file("$buildDir/prep")
+def fontName = "Source Code Pro With Ligatures"  // TODO font
 
 task prepareLigatures {
   def originalDir = file("$projectDir/ligatures")
@@ -52,6 +53,15 @@ task copyOriginals(type: Copy) {
   into workDir
 }
 
+task renameFont(type: Copy) {
+  dependsOn 'copyOriginals'
+  into workDir
+  from(projectDir) {
+    include "FontMenuNameDB"
+  }
+  filter { String line -> line.replace("Source Code Pro", fontName) }
+}
+
 task fillInContentPlist(dependsOn: 'copyOriginals') {
   doLast {
     fileTree(dir: workDir, include: "**/master_*/**/contents.plist").each { File plist ->
@@ -85,8 +95,10 @@ task fillGlyphOrderDB(dependsOn: 'copyOriginals') {
 
 task buildLigatureLookupTable(dependsOn: 'copyOriginals') {
   doLast {
-    def all = fileTree(dir: "$projectDir/ligatures", include: "**/*.glif").collect { new XmlSlurper().parse(it).'@name'.text() } as Set
-    all = all.sort { "${100-(it.split('_').length)}$it" }
+    def all = fileTree(dir: "$projectDir/ligatures", include: "**/*.glif").collect {
+      new XmlSlurper().parse(it).'@name'.text()
+    } as Set
+    all = all.sort { "${100 - (it.split('_').length)}$it" }
 
     def contents = all.collect { String name ->
       def parts = name.split("_")
@@ -114,7 +126,7 @@ $contents
 }
 
 task prepare {
-  dependsOn 'copyOriginals', 'fillInContentPlist', 'fillGlyphOrderDB', 'buildLigatureLookupTable'
+  dependsOn 'copyOriginals', 'renameFont', 'fillInContentPlist', 'fillGlyphOrderDB', 'buildLigatureLookupTable'
 }
 
 task buildInstances {
