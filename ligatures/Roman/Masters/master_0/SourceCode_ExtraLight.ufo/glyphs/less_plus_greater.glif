@@ -8,12 +8,8 @@
   </outline>
   <lib>
     <dict>
-      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
-      <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-29 07:47:22 +0000</string>
-      <key>public.markColor</key>
-      <string>0.67,0.95,0.38,1</string>
+      <string>2018-01-30 09:57:24 +0000</string>
     </dict>
   </lib>
 </glyph>

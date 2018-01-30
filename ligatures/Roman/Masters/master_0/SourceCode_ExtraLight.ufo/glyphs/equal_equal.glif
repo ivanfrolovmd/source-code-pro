@@ -2,14 +2,25 @@
 <glyph name="equal_equal" format="1">
   <advance width="1200"/>
   <outline>
-    <component base="equal" xOffset="-145" xScale="2.484"/>
+    <contour>
+      <point x="1102" y="416" type="line"/>
+      <point x="1102" y="444" type="line"/>
+      <point x="98" y="444" type="line"/>
+      <point x="98" y="416" type="line"/>
+    </contour>
+    <contour>
+      <point x="1102" y="216" type="line"/>
+      <point x="1102" y="244" type="line"/>
+      <point x="98" y="244" type="line"/>
+      <point x="98" y="216" type="line"/>
+    </contour>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
       <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-29 07:11:25 +0000</string>
+      <string>2018-01-30 14:03:46 +0000</string>
       <key>public.markColor</key>
       <string>0.67,0.95,0.38,1</string>
     </dict>

@@ -2,16 +2,43 @@
 <glyph name="less_less_less" format="1">
   <advance width="1800"/>
   <outline>
-    <component base="LESSCOMPONENT" xOffset="168"/>
-    <component base="LESSCOMPONENT" xOffset="600"/>
-    <component base="LESSCOMPONENT" xOffset="1032"/>
+    <contour>
+      <point x="1434" y="98" type="line"/>
+      <point x="1104" y="330" type="line"/>
+      <point x="1104" y="334" type="line"/>
+      <point x="1434" y="566" type="line"/>
+      <point x="1434" y="602" type="line"/>
+      <point x="1072" y="348" type="line"/>
+      <point x="1072" y="316" type="line"/>
+      <point x="1434" y="62" type="line"/>
+    </contour>
+    <contour>
+      <point x="738" y="98" type="line"/>
+      <point x="408" y="330" type="line"/>
+      <point x="408" y="334" type="line"/>
+      <point x="738" y="566" type="line"/>
+      <point x="738" y="602" type="line"/>
+      <point x="376" y="348" type="line"/>
+      <point x="376" y="316" type="line"/>
+      <point x="738" y="62" type="line"/>
+    </contour>
+    <contour>
+      <point x="1086" y="98" type="line"/>
+      <point x="756" y="330" type="line"/>
+      <point x="756" y="334" type="line"/>
+      <point x="1086" y="566" type="line"/>
+      <point x="1086" y="602" type="line"/>
+      <point x="724" y="348" type="line"/>
+      <point x="724" y="316" type="line"/>
+      <point x="1086" y="62" type="line"/>
+    </contour>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
       <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-29 06:52:18 +0000</string>
+      <string>2018-01-30 23:25:44 +0000</string>
       <key>public.markColor</key>
       <string>0.67,0.95,0.38,1</string>
     </dict>

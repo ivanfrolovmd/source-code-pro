@@ -3,22 +3,18 @@
   <advance width="1200"/>
   <outline>
     <contour>
-      <point x="84" y="270" type="line"/>
       <point x="1116" y="270" type="line"/>
       <point x="1116" y="390" type="line"/>
       <point x="84" y="390" type="line"/>
+      <point x="84" y="270" type="line"/>
     </contour>
     <component base="plus" xOffset="519"/>
     <component base="plus" xOffset="81"/>
   </outline>
   <lib>
     <dict>
-      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
-      <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-29 07:21:04 +0000</string>
-      <key>public.markColor</key>
-      <string>0.67,0.95,0.38,1</string>
+      <string>2018-01-30 14:03:39 +0000</string>
     </dict>
   </lib>
 </glyph>

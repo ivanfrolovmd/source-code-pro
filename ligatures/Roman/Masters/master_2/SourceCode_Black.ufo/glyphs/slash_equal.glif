@@ -2,15 +2,31 @@
 <glyph name="slash_equal" format="1">
   <advance width="1200"/>
   <outline>
-    <component base="slash" xOffset="70" yOffset="70" yScale="0.9"/>
-    <component base="equal_equal"/>
+    <contour>
+      <point x="206" y="-160" type="line"/>
+      <point x="536" y="710" type="line"/>
+      <point x="394" y="710" type="line"/>
+      <point x="64" y="-160" type="line"/>
+    </contour>
+    <contour>
+      <point x="1136" y="150" type="line"/>
+      <point x="1136" y="270" type="line"/>
+      <point x="426" y="270" type="line"/>
+      <point x="380" y="150" type="line"/>
+    </contour>
+    <contour>
+      <point x="1136" y="390" type="line"/>
+      <point x="1136" y="510" type="line"/>
+      <point x="517" y="510" type="line"/>
+      <point x="471" y="390" type="line"/>
+    </contour>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
       <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-29 07:18:23 +0000</string>
+      <string>2018-01-30 14:03:36 +0000</string>
       <key>public.markColor</key>
       <string>0.67,0.95,0.38,1</string>
     </dict>

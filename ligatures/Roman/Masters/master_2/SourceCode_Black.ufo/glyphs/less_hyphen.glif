@@ -3,16 +3,16 @@
   <advance width="1200"/>
   <outline>
     <contour>
-      <point x="372" y="153" type="line"/>
-      <point x="242" y="263" type="line"/>
-      <point x="1168" y="263" type="line"/>
-      <point x="1168" y="399" type="line"/>
-      <point x="242" y="399" type="line"/>
-      <point x="372" y="509" type="line"/>
-      <point x="292" y="601" type="line"/>
-      <point x="12" y="333" type="line"/>
-      <point x="12" y="329" type="line"/>
-      <point x="292" y="61" type="line"/>
+      <point x="506" y="176" type="line"/>
+      <point x="350" y="270" type="line"/>
+      <point x="1136" y="270" type="line"/>
+      <point x="1136" y="390" type="line"/>
+      <point x="350" y="390" type="line"/>
+      <point x="506" y="484" type="line"/>
+      <point x="506" y="638" type="line"/>
+      <point x="114" y="388" type="line"/>
+      <point x="114" y="272" type="line"/>
+      <point x="506" y="22" type="line"/>
     </contour>
   </outline>
   <lib>
@@ -20,7 +20,7 @@
       <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
       <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-29 12:57:19 +0000</string>
+      <string>2018-01-30 14:03:36 +0000</string>
       <key>public.markColor</key>
       <string>0.67,0.95,0.38,1</string>
     </dict>

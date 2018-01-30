@@ -2,15 +2,29 @@
 <glyph name="less_greater" format="1">
   <advance width="1200"/>
   <outline>
-    <component base="greater" xOffset="486"/>
-    <component base="less" xOffset="114"/>
+    <contour>
+      <point x="1076" y="316" type="line"/>
+      <point x="1076" y="348" type="line"/>
+      <point x="600" y="602" type="line"/>
+      <point x="124" y="348" type="line"/>
+      <point x="124" y="316" type="line"/>
+      <point x="600" y="62" type="line"/>
+    </contour>
+    <contour>
+      <point x="156" y="330" type="line"/>
+      <point x="156" y="334" type="line"/>
+      <point x="600" y="566" type="line"/>
+      <point x="1044" y="334" type="line"/>
+      <point x="1044" y="330" type="line"/>
+      <point x="600" y="98" type="line"/>
+    </contour>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
       <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-29 06:49:58 +0000</string>
+      <string>2018-01-30 14:03:46 +0000</string>
       <key>public.markColor</key>
       <string>0.67,0.95,0.38,1</string>
     </dict>
