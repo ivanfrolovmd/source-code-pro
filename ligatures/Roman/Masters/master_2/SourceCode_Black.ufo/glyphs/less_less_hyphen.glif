@@ -3,30 +3,34 @@
   <advance width="1800"/>
   <outline>
     <contour>
-      <point x="506" y="176" type="line"/>
-      <point x="350" y="270" type="line"/>
-      <point x="567" y="270" type="line"/>
-      <point x="956" y="22" type="line"/>
-      <point x="956" y="176" type="line"/>
-      <point x="800" y="270" type="line"/>
+      <point x="522" y="102" type="line"/>
+      <point x="329" y="270" type="line"/>
+      <point x="517" y="270" type="line"/>
+      <point x="788" y="10" type="line"/>
+      <point x="868" y="102" type="line"/>
+      <point x="675" y="270" type="line"/>
       <point x="1736" y="270" type="line"/>
       <point x="1736" y="390" type="line"/>
-      <point x="800" y="390" type="line"/>
-      <point x="956" y="484" type="line"/>
-      <point x="956" y="638" type="line"/>
-      <point x="567" y="390" type="line"/>
-      <point x="350" y="390" type="line"/>
-      <point x="506" y="484" type="line"/>
-      <point x="506" y="638" type="line"/>
-      <point x="114" y="388" type="line"/>
-      <point x="114" y="272" type="line"/>
-      <point x="506" y="22" type="line"/>
+      <point x="675" y="390" type="line"/>
+      <point x="868" y="558" type="line"/>
+      <point x="788" y="650" type="line"/>
+      <point x="517" y="390" type="line"/>
+      <point x="329" y="390" type="line"/>
+      <point x="522" y="558" type="line"/>
+      <point x="442" y="650" type="line"/>
+      <point x="110" y="332" type="line"/>
+      <point x="110" y="328" type="line"/>
+      <point x="442" y="10" type="line"/>
     </contour>
   </outline>
   <lib>
     <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-30 23:20:35 +0000</string>
+      <string>2018-01-31 06:15:08 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
     </dict>
   </lib>
 </glyph>

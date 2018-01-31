@@ -3,36 +3,42 @@
   <advance width="1800"/>
   <outline>
     <contour>
-      <point x="956" y="150" type="line"/>
-      <point x="1736" y="150" type="line"/>
-      <point x="1736" y="270" type="line"/>
-      <point x="800" y="270" type="line"/>
-      <point x="704" y="328" type="line"/>
-      <point x="704" y="332" type="line"/>
-      <point x="800" y="390" type="line"/>
-      <point x="1736" y="390" type="line"/>
-      <point x="1736" y="510" type="line"/>
-      <point x="956" y="510" type="line"/>
-      <point x="956" y="638" type="line"/>
-      <point x="564" y="388" type="line"/>
-      <point x="564" y="272" type="line"/>
-      <point x="956" y="22" type="line"/>
+      <point x="868" y="102" type="line"/>
+      <point x="787" y="172" type="line"/>
+      <point x="1615" y="172" type="line"/>
+      <point x="1615" y="270" type="line"/>
+      <point x="675" y="270" type="line"/>
+      <point x="608" y="328" type="line"/>
+      <point x="608" y="332" type="line"/>
+      <point x="675" y="390" type="line"/>
+      <point x="1615" y="390" type="line"/>
+      <point x="1615" y="488" type="line"/>
+      <point x="787" y="488" type="line"/>
+      <point x="868" y="558" type="line"/>
+      <point x="788" y="650" type="line"/>
+      <point x="456" y="332" type="line"/>
+      <point x="456" y="328" type="line"/>
+      <point x="788" y="10" type="line"/>
     </contour>
     <contour>
-      <point x="506" y="176" type="line"/>
-      <point x="254" y="328" type="line"/>
-      <point x="254" y="332" type="line"/>
-      <point x="506" y="484" type="line"/>
-      <point x="506" y="638" type="line"/>
-      <point x="114" y="388" type="line"/>
-      <point x="114" y="272" type="line"/>
-      <point x="506" y="22" type="line"/>
+      <point x="522" y="102" type="line"/>
+      <point x="262" y="328" type="line"/>
+      <point x="262" y="332" type="line"/>
+      <point x="522" y="558" type="line"/>
+      <point x="442" y="650" type="line"/>
+      <point x="110" y="332" type="line"/>
+      <point x="110" y="328" type="line"/>
+      <point x="442" y="10" type="line"/>
     </contour>
   </outline>
   <lib>
     <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-30 23:20:35 +0000</string>
+      <string>2018-01-31 06:20:16 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
     </dict>
   </lib>
 </glyph>
