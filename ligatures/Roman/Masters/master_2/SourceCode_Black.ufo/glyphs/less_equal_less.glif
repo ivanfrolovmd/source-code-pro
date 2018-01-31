@@ -6,8 +6,6 @@
       <point x="524" y="102" type="line"/>
       <point x="448" y="172" type="line"/>
       <point x="1461" y="172" type="line"/>
-      <point x="1578" y="60" type="line"/>
-      <point x="1579" y="61" type="line"/>
       <point x="1632" y="10" type="line"/>
       <point x="1712" y="102" type="line"/>
       <point x="1519" y="270" type="line"/>
@@ -32,7 +30,7 @@
       <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
       <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-31 00:07:02 +0000</string>
+      <string>2018-01-31 07:22:17 +0000</string>
       <key>public.markColor</key>
       <string>0.67,0.95,0.38,1</string>
     </dict>
