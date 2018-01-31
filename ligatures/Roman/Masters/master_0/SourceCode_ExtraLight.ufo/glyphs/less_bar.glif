@@ -2,13 +2,27 @@
 <glyph name="less_bar" format="1">
   <advance width="1200"/>
   <outline>
-    <component base="bar" xOffset="600" yOffset="135" yScale="0.8"/>
-    <component base="LESSCOMPONENT" xOffset="104"/>
+    <contour>
+      <point x="594" y="22" type="line"/>
+      <point x="156" y="330" type="line"/>
+      <point x="156" y="334" type="line"/>
+      <point x="594" y="641" type="line"/>
+      <point x="594" y="677" type="line"/>
+      <point x="124" y="348" type="line"/>
+      <point x="124" y="316" type="line"/>
+      <point x="594" y="-14" type="line"/>
+    </contour>
+    <contour>
+      <point x="696" y="-65" type="line"/>
+      <point x="696" y="729" type="line"/>
+      <point x="668" y="729" type="line"/>
+      <point x="668" y="-65" type="line"/>
+    </contour>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-30 09:57:24 +0000</string>
+      <string>2018-01-31 10:36:34 +0000</string>
     </dict>
   </lib>
 </glyph>

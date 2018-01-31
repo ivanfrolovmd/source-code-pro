@@ -2,14 +2,14 @@
 <glyph name="less_dollar_greater" format="1">
   <advance width="1800"/>
   <outline>
-    <component base="LESSCOMPONENT" xOffset="50"/>
-    <component base="GREATERCOMPONENT" xOffset="1150"/>
-    <component base="dollar" xOffset="668" yOffset="80" xScale="0.8" yScale="0.8"/>
+    <component base="dollar" xOffset="657" yOffset="80" xScale="0.8" yScale="0.8"/>
+    <component base="less" xOffset="150"/>
+    <component base="greater" xOffset="1050"/>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-30 12:33:44 +0000</string>
+      <string>2018-01-31 11:06:55 +0000</string>
     </dict>
   </lib>
 </glyph>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<glyph name="bar_greater" format="1">
+<glyph name="plus_greater" format="1">
   <advance width="1200"/>
   <outline>
-    <component base="less_bar" xOffset="1200" xScale="-1"/>
+    <component base="less_plus" xOffset="1200" xScale="-1"/>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-31 10:37:53 +0000</string>
+      <string>2018-01-31 10:59:55 +0000</string>
     </dict>
   </lib>
 </glyph>
