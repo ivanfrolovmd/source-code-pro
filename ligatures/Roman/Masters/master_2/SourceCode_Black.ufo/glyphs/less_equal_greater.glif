@@ -3,22 +3,22 @@
   <advance width="1800"/>
   <outline>
     <contour>
-      <point x="470" y="152" type="line"/>
+      <point x="522" y="102" type="line"/>
       <point x="446" y="172" type="line"/>
       <point x="1354" y="172" type="line"/>
-      <point x="1330" y="152" type="line"/>
-      <point x="1410" y="60" type="line"/>
+      <point x="1278" y="102" type="line"/>
+      <point x="1358" y="10" type="line"/>
       <point x="1690" y="328" type="line"/>
       <point x="1690" y="332" type="line"/>
-      <point x="1410" y="600" type="line"/>
-      <point x="1330" y="508" type="line"/>
+      <point x="1358" y="650" type="line"/>
+      <point x="1278" y="558" type="line"/>
       <point x="1354" y="488" type="line"/>
       <point x="446" y="488" type="line"/>
-      <point x="470" y="508" type="line"/>
-      <point x="390" y="600" type="line"/>
+      <point x="522" y="558" type="line"/>
+      <point x="442" y="650" type="line"/>
       <point x="110" y="332" type="line"/>
       <point x="110" y="328" type="line"/>
-      <point x="390" y="60" type="line"/>
+      <point x="442" y="10" type="line"/>
     </contour>
     <contour>
       <point x="262" y="328" type="line"/>
@@ -36,7 +36,7 @@
       <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
       <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-30 23:30:38 +0000</string>
+      <string>2018-01-31 00:05:08 +0000</string>
       <key>public.markColor</key>
       <string>0.67,0.95,0.38,1</string>
     </dict>
