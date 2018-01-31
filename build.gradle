@@ -1,10 +1,12 @@
 def workDir = file("$buildDir/prep")
-def fontName = "Source Code Pro With Ligatures"  // TODO font
+def fontName = "Source Code Pro With Ligatures"  // TODO font name
 
 task prepareLigatures {
   def originalDir = file("$projectDir/ligatures")
   def toDir = file("$buildDir/ligatures")
+
   doLast {
+    delete(toDir)
     copy {
       from originalDir
       into toDir
@@ -51,6 +53,10 @@ task copyOriginals(type: Copy) {
   }
   from "$buildDir/ligatures"
   into workDir
+
+  doFirst {
+    delete(workDir)
+  }
 }
 
 task renameFont(type: Copy) {
@@ -151,6 +157,9 @@ task buildFonts {
 }
 
 task prepareForEditing(type: Copy) {
+  doFirst {
+    delete("$buildDir/edit")
+  }
   from(projectDir) {
     include "Roman/Masters/**/*.ufo/**"
     include "Italic/Masters/**/*.ufo/**"
