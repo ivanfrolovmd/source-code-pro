@@ -1,5 +1,6 @@
 def workDir = file("$buildDir/prep")
-def fontName = "Source Code Pro With Ligatures"  // TODO font name
+def fontName = "Source Code Pro Ligatures"  // TODO font name
+def shortFontName = fontName.replaceAll("\\s+", "")
 
 task prepareLigatures {
   def originalDir = file("$projectDir/ligatures")
@@ -50,9 +51,11 @@ task copyOriginals(type: Copy) {
     exclude "target"
     exclude "ligatures"
     exclude "*gradle*"
+    exclude "**/Instances/**/font.ufo/**"
   }
   from "$buildDir/ligatures"
   into workDir
+  includeEmptyDirs = false
 
   doFirst {
     delete(workDir)
@@ -61,11 +64,34 @@ task copyOriginals(type: Copy) {
 
 task renameFont(type: Copy) {
   dependsOn 'copyOriginals'
+
+  def longTokenName = UUID.randomUUID().toString()
+  def shortTokenName = UUID.randomUUID().toString()
+
   into workDir
   from(projectDir) {
     include "FontMenuNameDB"
+    filter { String line ->
+      line
+          .replace("Source Code Pro", longTokenName)
+          .replace("SourceCodePro", shortTokenName)
+          .replace("SourceCode", shortTokenName)
+          .replace(longTokenName, fontName)
+          .replace(shortTokenName, shortFontName)
+    }
   }
-  filter { String line -> line.replace("Source Code Pro", fontName) }
+  from(projectDir) {
+    include "Roman/**/*.designspace"
+    include "Italic/**/*.designspace"
+    filter { String line ->
+      line
+          .replace("Source Code Pro", longTokenName)
+          .replace("SourceCodePro", shortTokenName)
+          .replace(longTokenName, fontName)
+          .replace(shortTokenName, shortFontName)
+    }
+    includeEmptyDirs = false
+  }
 }
 
 task fillInContentPlist(dependsOn: 'copyOriginals') {
@@ -84,7 +110,9 @@ task fillInContentPlist(dependsOn: 'copyOriginals') {
 
 task fillGlyphOrderDB(dependsOn: 'copyOriginals') {
   doLast {
-    def all = fileTree(dir: "$projectDir/ligatures", include: "**/*.glif").collect { new XmlSlurper().parse(it).'@name'.text() } as Set
+    def all = fileTree(dir: "$projectDir/ligatures", include: "**/*.glif").collect {
+      new XmlSlurper().parse(it).'@name'.text()
+    } as Set
     all = all.sort()
 
     def str = all.sort().withIndex().collect { el, ix -> "uni${Integer.toHexString(0xE100 + ix).toUpperCase()} $el" }.join("\n")
@@ -127,7 +155,7 @@ feature calt {
 $contents
 } calt;
 """
-    file("$workDir/features.fea") << "include (../../../../ligatures.fea);\n"
+    file("$workDir/features.fea") << "include (../../../../ligatures.fea);"
   }
 }
 
@@ -139,9 +167,7 @@ task buildInstances {
   dependsOn 'prepare'
   doLast {
     fileTree(dir: workDir, include: "**/Masters/**/*.designspace").each { File file ->
-      exec {
-        commandLine "makeInstancesUFO", "-d", file.absolutePath
-      }
+      exec { commandLine "makeInstancesUFO", "-d", file.absolutePath }
     }
   }
 }
@@ -149,9 +175,18 @@ task buildInstances {
 task buildFonts {
   dependsOn 'buildInstances'
   doLast {
-    exec {
-      commandLine "$workDir/build.sh"
-      workingDir workDir
+    def outDir = "$buildDir/release"
+    def uvs = "$projectDir/uvs.txt"
+
+    delete(outDir)
+    file(outDir).mkdirs()
+
+    fileTree(dir: workDir, include: "**/Instances/**/*.ufo/fontinfo.plist").each { File plist ->
+      def ufoDir = plist.parentFile
+      def outFile = "$outDir/$shortFontName-${ufoDir.parentFile.name}.otf"
+      file("$ufoDir/features.fea").text = "include (../../../../features.fea);"
+      exec { commandLine "makeotf", "-f", ufoDir.absolutePath, "-r", "-ci", uvs, "-o", outFile }
+      exec { commandLine "$projectDir/addSVGtable.py", outFile, "$projectDir/svg" }
     }
   }
 }
@@ -182,4 +217,10 @@ task finishEditing(type: Copy) {
     }
   }
   into "$projectDir/ligatures"
+}
+
+task help() {
+  doLast {
+    println "TODO: provide some help here"
+  }
 }
