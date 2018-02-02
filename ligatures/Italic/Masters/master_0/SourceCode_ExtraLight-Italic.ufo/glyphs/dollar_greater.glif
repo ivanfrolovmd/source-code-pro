@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<glyph name="asterisk_greater" format="1">
+<glyph name="dollar_greater" format="1">
   <advance width="1200"/>
   <outline>
-    <component base="less_asterisk" xOffset="1200" xScale="-1"/>
+    <component base="dollar" xOffset="272" yOffset="80" xScale="0.8" yScale="0.8"/>
+    <component base="greater" xOffset="600"/>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
       <integer>6</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-02-02 08:11:22 +0000</string>
+      <string>2018-02-02 08:00:28 +0000</string>
       <key>public.markColor</key>
       <string>0,0.67,0.91,1</string>
     </dict>

@@ -1,26 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><glyph name="less_asterisk_greater" format="1">
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="less_asterisk_greater" format="1">
   <advance width="1800"/>
   <outline>
-    <contour>
-      <point x="1676" y="348" type="line"/>
-      <point x="1111" y="639" type="line"/>
-      <point x="1111" y="603" type="line"/>
-      <point x="1644" y="334" type="line"/>
-      <point x="1644" y="330" type="line"/>
-      <point x="1116" y="58" type="line"/>
-      <point x="1116" y="22" type="line"/>
-      <point x="1676" y="316" type="line"/>
-    </contour>
-    <contour>
-      <point x="124" y="316" type="line"/>
-      <point x="684" y="38" type="line"/>
-      <point x="684" y="74" type="line"/>
-      <point x="156" y="330" type="line"/>
-      <point x="156" y="334" type="line"/>
-      <point x="682" y="597" type="line"/>
-      <point x="682" y="633" type="line"/>
-      <point x="124" y="348" type="line"/>
-    </contour>
-    <component base="asterisk" xOffset="600" yOffset="42"/>
+    <component base="asterisk" xOffset="600" yOffset="22"/>
+    <component base="less" xOffset="218"/>
+    <component base="greater" xOffset="982"/>
   </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>6</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-02-02 07:58:54 +0000</string>
+      <key>public.markColor</key>
+      <string>0,0.67,0.91,1</string>
+    </dict>
+  </lib>
 </glyph>

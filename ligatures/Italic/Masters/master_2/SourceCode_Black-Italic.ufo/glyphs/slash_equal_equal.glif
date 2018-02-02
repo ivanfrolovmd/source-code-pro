@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="slash_equal_equal" format="1">
+  <advance width="1800"/>
+  <outline>
+    <contour>
+      <point x="121" y="-160" type="line"/>
+      <point x="625" y="710" type="line"/>
+      <point x="485" y="710" type="line"/>
+      <point x="-18" y="-160" type="line"/>
+    </contour>
+    <contour>
+      <point x="1733" y="37" type="line"/>
+      <point x="1733" y="149" type="line"/>
+      <point x="357" y="149" type="line"/>
+      <point x="292" y="37" type="line"/>
+    </contour>
+    <contour>
+      <point x="1733" y="274" type="line"/>
+      <point x="1733" y="386" type="line"/>
+      <point x="494" y="386" type="line"/>
+      <point x="429" y="274" type="line"/>
+    </contour>
+    <contour>
+      <point x="1733" y="511" type="line"/>
+      <point x="1733" y="623" type="line"/>
+      <point x="632" y="623" type="line"/>
+      <point x="567" y="511" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-02-02 08:41:02 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
+</glyph>
