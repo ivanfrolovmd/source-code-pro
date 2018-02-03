@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<glyph name="colon_colon" format="1">
+<glyph name="semicolon_semicolon" format="1">
   <advance width="1200"/>
   <outline>
-    <component base="colon" xOffset="90"/>
-    <component base="colon" xOffset="510"/>
+    <component base="semicolon" xOffset="90"/>
+    <component base="semicolon" xOffset="510"/>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-02-03 01:03:21 +0000</string>
+      <string>2018-02-03 01:08:32 +0000</string>
     </dict>
   </lib>
 </glyph>

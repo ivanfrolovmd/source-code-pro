@@ -2,15 +2,13 @@
 <glyph name="colon_colon" format="1">
   <advance width="1200"/>
   <outline>
-    <component base="period" xOffset="510" yOffset="310"/>
-    <component base="period" xOffset="510"/>
-    <component base="period" xOffset="90" yOffset="310"/>
-    <component base="period" xOffset="90"/>
+    <component base="colon" xOffset="90"/>
+    <component base="colon" xOffset="510"/>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-30 12:33:44 +0000</string>
+      <string>2018-02-03 01:05:15 +0000</string>
     </dict>
   </lib>
 </glyph>
