@@ -2,16 +2,50 @@
 <glyph name="less_asterisk_greater" format="1">
   <advance width="1800"/>
   <outline>
-    <component base="asterisk" xOffset="600" yOffset="22"/>
-    <component base="less" xOffset="218"/>
-    <component base="greater" xOffset="982"/>
+    <contour>
+      <point x="1458" y="316" type="line"/>
+      <point x="1458" y="348" type="line"/>
+      <point x="1096" y="602" type="line"/>
+      <point x="1096" y="566" type="line"/>
+      <point x="1426" y="334" type="line"/>
+      <point x="1426" y="330" type="line"/>
+      <point x="1096" y="98" type="line"/>
+      <point x="1096" y="62" type="line"/>
+    </contour>
+    <contour>
+      <point x="704" y="98" type="line"/>
+      <point x="374" y="330" type="line"/>
+      <point x="374" y="334" type="line"/>
+      <point x="704" y="566" type="line"/>
+      <point x="704" y="602" type="line"/>
+      <point x="342" y="348" type="line"/>
+      <point x="342" y="316" type="line"/>
+      <point x="704" y="62" type="line"/>
+    </contour>
+    <contour>
+      <point x="900" y="322" type="line"/>
+      <point x="1024" y="150" type="line"/>
+      <point x="1048" y="167" type="line"/>
+      <point x="930" y="340" type="line"/>
+      <point x="1099" y="412" type="line"/>
+      <point x="1090" y="436" type="line"/>
+      <point x="918" y="372" type="line"/>
+      <point x="913" y="570" type="line"/>
+      <point x="887" y="570" type="line"/>
+      <point x="882" y="372" type="line"/>
+      <point x="710" y="436" type="line"/>
+      <point x="701" y="412" type="line"/>
+      <point x="870" y="340" type="line"/>
+      <point x="752" y="167" type="line"/>
+      <point x="776" y="150" type="line"/>
+    </contour>
   </outline>
   <lib>
     <dict>
       <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
       <integer>4</integer>
       <key>com.schriftgestaltung.Glyphs.lastChange</key>
-      <string>2018-01-31 11:30:30 +0000</string>
+      <string>2018-02-03 00:20:14 +0000</string>
       <key>public.markColor</key>
       <string>0.67,0.95,0.38,1</string>
     </dict>
