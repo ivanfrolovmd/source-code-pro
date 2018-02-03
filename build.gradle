@@ -1,5 +1,5 @@
 def workDir = file("$buildDir/prep")
-def fontName = "Source Code Pro Ligatures"  // TODO font name
+def fontName = "Source Code Pro Ligatures"
 def shortFontName = fontName.replaceAll("\\s+", "")
 
 task prepareLigatures {
@@ -9,17 +9,27 @@ task prepareLigatures {
   doLast {
     delete(toDir)
     copy {
+      from "$originalDir/Roman/Masters/master_0/SourceCode_ExtraLight.ufo/glyphs"
+      into "$toDir/Italic/Masters/master_0/SourceCode_ExtraLight-Italic.ufo/glyphs"
+    }
+    copy {
+      from "$originalDir/Roman/Masters/master_2/SourceCode_Black.ufo/glyphs"
+      into "$toDir/Italic/Masters/master_2/SourceCode_Black-Italic.ufo/glyphs"
+      duplicatesStrategy 'exclude'
+    }
+    copy {
       from originalDir
       into toDir
+    }
+
+    def widths = fileTree(dir: originalDir, include: "**/*.glif").files.collectEntries { File glyph ->
+      def gl = new XmlSlurper().parse(glyph)
+      [gl.'@name'.text(), gl.advance.'@width'.text() as int]
     }
 
     fileTree(dir: "$buildDir/ligatures", include: "**/*.glif").each { File theFile ->
       def WIDTH = 600
 
-      def widths = file("$originalDir/${toDir.toPath().relativize(theFile.toPath())}").parentFile.listFiles().collectEntries {
-        def gl = new XmlSlurper().parse(it)
-        [gl.'@name'.text(), gl.advance.'@width'.text() as int]
-      }
 
       def glyph = new XmlParser().parse(theFile)
       glyph.lib.each { glyph.remove(it) }
@@ -94,10 +104,10 @@ task renameFont(type: Copy) {
   }
 }
 
-task fillInContentPlist(dependsOn: 'copyOriginals') {
+task fillInContentPlist(dependsOn: ['copyOriginals', 'prepareLigatures']) {
   doLast {
     fileTree(dir: workDir, include: "**/master_*/**/contents.plist").each { File plist ->
-      File originalDir = file("$projectDir/ligatures/" + workDir.toPath().relativize(plist.parentFile.toPath()))
+      File originalDir = file("$buildDir/ligatures/" + workDir.toPath().relativize(plist.parentFile.toPath()))
       def glyphs = originalDir.listFiles() ?: []
       def keys = glyphs.collect { File file ->
         def name = new XmlSlurper().parse(file).'@name'[0]
