@@ -85,7 +85,7 @@ task renameFont(type: Copy) {
       line
           .replace("Source Code Pro", longTokenName)
           .replace("SourceCodePro", shortTokenName)
-          .replace("SourceCode", shortTokenName)
+          .replaceAll("$shortTokenName-\\w*It\\b", "\$0alic") // Java on Mac only recognises Italic font if "Italic" is part of full name
           .replace(longTokenName, fontName)
           .replace(shortTokenName, shortFontName)
     }
@@ -97,6 +97,7 @@ task renameFont(type: Copy) {
       line
           .replace("Source Code Pro", longTokenName)
           .replace("SourceCodePro", shortTokenName)
+          .replaceAll("$shortTokenName-\\w*It\\b", "\$0alic") // Java on Mac only recognises Italic font if "Italic" is part of full name
           .replace(longTokenName, fontName)
           .replace(shortTokenName, shortFontName)
     }
@@ -125,7 +126,7 @@ task fillGlyphOrderDB(dependsOn: 'copyOriginals') {
     } as Set
     all = all.sort()
 
-    def str = all.sort().withIndex().collect { el, ix -> "uni${Integer.toHexString(0xE100 + ix).toUpperCase()} $el" }.join("\n")
+    def str = all.withIndex().collect { el, ix -> "uni${Integer.toHexString(0xE100 + ix).toUpperCase()} $el" }.join("\n")
     fileTree(dir: workDir, include: "**/GlyphOrderAndAliasDB").each { file ->
       file.text = file.text + str + "\n"
     }
@@ -134,6 +135,12 @@ task fillGlyphOrderDB(dependsOn: 'copyOriginals') {
     fileTree(dir: workDir, include: "**/master_*/**/lib.plist").each { file ->
       file.text = file.text.replace("</array>", "$arrays\n</array>")
     }
+
+    def columns = 3
+    def alphabet = all.withIndex().collect { el, ix -> "    ${new String(Character.toChars(0xE100+ix))} [$el]" as String}
+    def maxWidth = alphabet.max { it.length() }.length() + 1
+    alphabet += ([""] * ((columns - (alphabet.size % columns)) % columns))
+    file("$workDir/alphabet.txt").text = alphabet.collate(alphabet.size() / columns as int).transpose().collect { line -> line.collect{ it.padRight(maxWidth) }.join() }.join("\n")
   }
 }
 
@@ -186,17 +193,21 @@ task buildFonts {
   dependsOn 'buildInstances'
   doLast {
     def outDir = "$buildDir/release"
+    def pngDir = "$outDir/png"
     def uvs = "$projectDir/uvs.txt"
 
     delete(outDir)
     file(outDir).mkdirs()
+    file(pngDir).mkdirs()
 
     fileTree(dir: workDir, include: "**/Instances/**/*.ufo/fontinfo.plist").each { File plist ->
       def ufoDir = plist.parentFile
       def outFile = "$outDir/$shortFontName-${ufoDir.parentFile.name}.otf"
+      def pngFile = "$pngDir/$shortFontName-${ufoDir.parentFile.name}.png"
       file("$ufoDir/features.fea").text = "include (../../../../features.fea);"
       exec { commandLine "makeotf", "-f", ufoDir.absolutePath, "-r", "-ci", uvs, "-o", outFile }
       exec { commandLine "$projectDir/addSVGtable.py", outFile, "$projectDir/svg" }
+      exec { commandLine "convert", "-font", outFile, "-pointsize", "28", "label:@$workDir/alphabet.txt", pngFile }
     }
   }
 }
