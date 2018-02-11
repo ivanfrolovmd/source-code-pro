@@ -1,0 +1,284 @@
+def workDir = file("$buildDir/prep")
+def fontName = "Source Code Pro Ligatures"
+def shortFontName = fontName.replaceAll("\\s+", "")
+
+task prepareLigatures {
+  def originalDir = file("$projectDir/ligatures")
+  def toDir = file("$buildDir/ligatures")
+
+  doLast {
+    delete(toDir)
+    copy {
+      from "$originalDir/Roman/Masters/master_0/SourceCode_ExtraLight.ufo/glyphs"
+      into "$toDir/Italic/Masters/master_0/SourceCode_ExtraLight-Italic.ufo/glyphs"
+    }
+    copy {
+      from "$originalDir/Roman/Masters/master_2/SourceCode_Black.ufo/glyphs"
+      into "$toDir/Italic/Masters/master_2/SourceCode_Black-Italic.ufo/glyphs"
+      duplicatesStrategy 'exclude'
+    }
+    copy {
+      from originalDir
+      into toDir
+    }
+
+    def widths = fileTree(dir: originalDir, include: "**/*.glif").files.collectEntries { File glyph ->
+      def gl = new XmlSlurper().parse(glyph)
+      [gl.'@name'.text(), gl.advance.'@width'.text() as int]
+    }
+
+    fileTree(dir: "$buildDir/ligatures", include: "**/*.glif").each { File theFile ->
+      def WIDTH = 600
+
+
+      def glyph = new XmlParser().parse(theFile)
+      glyph.lib.each { glyph.remove(it) }
+
+//      int xFactor = (glyph.advance.'@width'[0] as int) / WIDTH
+//      if (xFactor > 1) {
+//        glyph.advance*.'@width' = 600
+//        glyph.outline.contour.point.each { it.'@x' = (it.'@x' as int) - WIDTH * (xFactor - 1) }
+//        glyph.outline.component.each {
+//          def deltaError = (((it.'@xScale' ?: 1) as double) < 0 ? -1 : 1) * (((widths[it.'@base'] ?: WIDTH) as int) - WIDTH)
+//          if (it.'@xOffset') {
+//            it.'@xOffset' = (it.'@xOffset' as int) - WIDTH * (xFactor - 1) + deltaError
+//          } else {
+//            it.'@xOffset' = 0 - WIDTH * (xFactor - 1) + deltaError
+//          }
+//        }
+//      }
+
+      theFile.text = groovy.xml.XmlUtil.serialize(glyph)
+    }
+  }
+}
+
+task copyOriginals(type: Copy) {
+  dependsOn 'prepareLigatures'
+  from(projectDir) {
+    exclude "build"
+    exclude ".*"
+    exclude "target"
+    exclude "ligatures"
+    exclude "*gradle*"
+    exclude "**/Instances/**/font.ufo/**"
+  }
+  from "$buildDir/ligatures"
+  into workDir
+  includeEmptyDirs = false
+
+  doFirst {
+    delete(workDir)
+  }
+}
+
+task renameFont(type: Copy) {
+  dependsOn 'copyOriginals'
+
+  def longTokenName = UUID.randomUUID().toString()
+  def shortTokenName = UUID.randomUUID().toString()
+
+  into workDir
+  from(projectDir) {
+    include "FontMenuNameDB"
+    filter { String line ->
+      line
+          .replace("Source Code Pro", longTokenName)
+          .replace("SourceCodePro", shortTokenName)
+      // Java on Mac only recognises Italic font if "Italic" is part of full name
+      // https://bugs.openjdk.java.net/browse/JDK-8139151 ↓↓↓ ↓↓↓
+          .replaceAll("$shortTokenName-\\w*It\\b", "\$0alic")
+          .replace(longTokenName, fontName)
+          .replace(shortTokenName, shortFontName)
+    }
+  }
+  from(projectDir) {
+    include "Roman/**/*.designspace"
+    include "Italic/**/*.designspace"
+    filter { String line ->
+      line
+          .replace("Source Code Pro", longTokenName)
+          .replace("SourceCodePro", shortTokenName)
+      // Java on Mac only recognises Italic font if "Italic" is part of full name
+      // https://bugs.openjdk.java.net/browse/JDK-8139151 ↓↓↓
+          .replaceAll("$shortTokenName-\\w*It\\b", "\$0alic")
+          .replace(longTokenName, fontName)
+          .replace(shortTokenName, shortFontName)
+    }
+    includeEmptyDirs = false
+  }
+}
+
+task fillInContentPlist(dependsOn: ['copyOriginals', 'prepareLigatures']) {
+  doLast {
+    fileTree(dir: workDir, include: "**/master_*/**/contents.plist").each { File plist ->
+      File originalDir = file("$buildDir/ligatures/" + workDir.toPath().relativize(plist.parentFile.toPath()))
+      def glyphs = originalDir.listFiles() ?: []
+      def keys = glyphs.collect { File file ->
+        def name = new XmlSlurper().parse(file).'@name'[0]
+        "<key>$name</key>\n<string>${file.name}</string>\n"
+      }.join()
+      plist.text = plist.text.replace("</dict>", "$keys\n</dict>")
+    }
+  }
+}
+
+task fillGlyphOrderDB(dependsOn: 'copyOriginals') {
+  doLast {
+    def all = fileTree(dir: "$projectDir/ligatures", include: "**/*.glif").collect {
+      new XmlSlurper().parse(it).'@name'.text()
+    } as Set
+    all = all.sort()
+
+    def str = all.withIndex().collect { el, ix -> "uni${Integer.toHexString(0xE100 + ix).toUpperCase()} $el" }.join("\n")
+    fileTree(dir: workDir, include: "**/GlyphOrderAndAliasDB").each { file ->
+      file.text = file.text + str + "\n"
+    }
+
+    def arrays = (0..all.size() - 1).collect { ix -> "<string>uni${Integer.toHexString(0xE100 + ix).toUpperCase()}</string>" }.join("\n")
+    fileTree(dir: workDir, include: "**/master_*/**/lib.plist").each { file ->
+      file.text = file.text.replace("</array>", "$arrays\n</array>")
+    }
+
+    def columns = 3
+    def alphabet = all.withIndex().collect { el, ix -> "    ${new String(Character.toChars(0xE100 + ix))} [$el]" as String }
+    def maxWidth = alphabet.max { it.length() }.length() + 1
+    alphabet += ([""] * ((columns - (alphabet.size % columns)) % columns))
+    file("$workDir/alphabet.txt").text = alphabet.collate(alphabet.size() / columns as int).transpose().collect { line ->
+      line.collect {
+        it.padRight(maxWidth)
+      }.join()
+    }.join("\n")
+  }
+}
+
+task buildLigatureLookupTable(dependsOn: 'copyOriginals') {
+  doLast {
+    def all = fileTree(dir: "$projectDir/ligatures", include: "**/*.glif").collect {
+      new XmlSlurper().parse(it).'@name'.text()
+    } as Set
+    all = all.sort { "${100 - (it.split('_').length)}$it" }.grep { it != "LIG" }
+
+    def allLigatureSymbols = all.collectMany { it.split("_").toList() }.grep { it.length() > 1 }.unique(false).sort()
+
+    def contents = all.collect { String name ->
+      def parts = name.split("_")
+      def target = parts.collect { "$it'" }.join(" ")
+"""
+  lookup $name {
+    ignore sub @LIGATURE_SYMBOL $target;
+    ignore sub $target @LIGATURE_SYMBOL;
+    sub $target by $name;
+  } $name;
+"""
+    }.join("\n")
+
+    /*
+    def contents = all.collect { String name ->
+      def parts = name.split("_")
+      def size = parts.length
+
+      if (size < 2) return ""
+
+      def allSymbols = parts.toUnique()
+      def ignoreBase = "${parts[0]}' ${(2..size).collect { parts[it - 1] }.join(" ")}"
+      def ignores = allSymbols.collectMany {
+        [
+            "ignore sub $it $ignoreBase;\n",
+            "ignore sub $ignoreBase $it;\n",
+        ]
+      }.join()
+
+      def lookups = (size..1).collect { subIx ->
+        "sub ${"LIG " * (subIx - 1)}${parts[subIx - 1]}' ${(subIx..<size).collect { parts[it] }.join(" ")} by ${subIx == size ? name : "LIG"};\n"
+      }.join()
+
+      "lookup $name {\n$ignores$lookups} $name;\n"
+    }.join("\n")
+    */
+
+//    file("$workDir/ligatures.fea").text = """
+//feature calt {
+//$contents
+//} calt;
+//"""
+    file("$workDir/ligatures.fea").text = """
+@LIGATURE_SYMBOL = [${allLigatureSymbols.join(" ")}];
+
+feature calt {
+$contents
+} calt;
+"""
+    file("$workDir/features.fea") << "include (../../../../ligatures.fea);"
+  }
+}
+
+task prepare {
+  dependsOn 'copyOriginals', 'renameFont', 'fillInContentPlist', 'fillGlyphOrderDB', 'buildLigatureLookupTable'
+}
+
+task buildInstances {
+  dependsOn 'prepare'
+  doLast {
+    fileTree(dir: workDir, include: "**/Masters/**/*.designspace").each { File file ->
+      exec { commandLine "makeInstancesUFO", "-d", file.absolutePath }
+    }
+  }
+}
+
+task buildFonts {
+  dependsOn 'buildInstances'
+  doLast {
+    def outDir = "$buildDir/release"
+    def pngDir = "$outDir/png"
+    def uvs = "$projectDir/uvs.txt"
+
+    delete(outDir)
+    file(outDir).mkdirs()
+    file(pngDir).mkdirs()
+
+    fileTree(dir: workDir, include: "**/Instances/**/*.ufo/fontinfo.plist").each { File plist ->
+      def ufoDir = plist.parentFile
+      def outFile = "$outDir/$shortFontName-${ufoDir.parentFile.name}.otf"
+      def pngFile = "$pngDir/$shortFontName-${ufoDir.parentFile.name}.png"
+      file("$ufoDir/features.fea").text = "include (../../../../features.fea);"
+      exec { commandLine "makeotf", "-f", ufoDir.absolutePath, "-r", "-ci", uvs, "-o", outFile }
+      exec { commandLine "$projectDir/addSVGtable.py", outFile, "$projectDir/svg" }
+      exec { commandLine "convert", "-font", outFile, "-pointsize", "28", "label:@$workDir/alphabet.txt", pngFile }
+    }
+  }
+}
+
+task prepareForEditing(type: Copy) {
+  doFirst {
+    delete("$buildDir/edit")
+  }
+  from(projectDir) {
+    include "Roman/Masters/**/*.ufo/**"
+    include "Italic/Masters/**/*.ufo/**"
+  }
+  from "$projectDir/ligatures"
+  into "$buildDir/edit"
+
+  doLast {
+    println "Edit fonts in $buildDir/edit"
+  }
+}
+
+task finishEditing(type: Copy) {
+  def editDir = file("$buildDir/edit")
+
+  from(editDir) {
+    exclude {
+      def projectFile = file("$projectDir/${editDir.toPath().relativize(it.file.toPath())}")
+      projectFile.isFile() && projectFile.exists()
+    }
+  }
+  into "$projectDir/ligatures"
+}
+
+task help() {
+  doLast {
+    println "TODO: provide some help here"
+  }
+}

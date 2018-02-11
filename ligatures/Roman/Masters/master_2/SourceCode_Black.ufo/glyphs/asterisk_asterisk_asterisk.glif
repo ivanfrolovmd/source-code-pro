@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="asterisk_asterisk_asterisk" format="1">
+  <advance width="1800"/>
+  <outline>
+    <component base="asterisk" xOffset="1100"/>
+    <component base="asterisk.a" xOffset="600"/>
+    <component base="asterisk" xOffset="100"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-30 12:33:44 +0000</string>
+    </dict>
+  </lib>
+</glyph>

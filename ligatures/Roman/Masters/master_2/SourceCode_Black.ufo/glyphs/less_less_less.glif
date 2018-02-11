@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="less_less_less" format="1">
+  <advance width="1800"/>
+  <outline>
+    <contour>
+      <point x="1556" y="178" type="line"/>
+      <point x="1304" y="330" type="line"/>
+      <point x="1304" y="334" type="line"/>
+      <point x="1556" y="486" type="line"/>
+      <point x="1556" y="640" type="line"/>
+      <point x="1164" y="390" type="line"/>
+      <point x="1164" y="274" type="line"/>
+      <point x="1556" y="24" type="line"/>
+    </contour>
+    <contour>
+      <point x="656" y="178" type="line"/>
+      <point x="404" y="330" type="line"/>
+      <point x="404" y="334" type="line"/>
+      <point x="656" y="486" type="line"/>
+      <point x="656" y="640" type="line"/>
+      <point x="264" y="390" type="line"/>
+      <point x="264" y="274" type="line"/>
+      <point x="656" y="24" type="line"/>
+    </contour>
+    <contour>
+      <point x="1106" y="178" type="line"/>
+      <point x="854" y="330" type="line"/>
+      <point x="854" y="334" type="line"/>
+      <point x="1106" y="486" type="line"/>
+      <point x="1106" y="640" type="line"/>
+      <point x="714" y="390" type="line"/>
+      <point x="714" y="274" type="line"/>
+      <point x="1106" y="24" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-30 23:24:50 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
+</glyph>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="hyphen_less" format="1">
+  <advance width="1200"/>
+  <outline>
+    <contour>
+      <point x="1112" y="102" type="line"/>
+      <point x="852" y="328" type="line"/>
+      <point x="852" y="332" type="line"/>
+      <point x="1112" y="558" type="line"/>
+      <point x="1032" y="650" type="line"/>
+      <point x="761" y="390" type="line"/>
+      <point x="64" y="390" type="line"/>
+      <point x="64" y="270" type="line"/>
+      <point x="761" y="270" type="line"/>
+      <point x="1032" y="10" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-31 00:35:08 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
+</glyph>

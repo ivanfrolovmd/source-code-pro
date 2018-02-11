@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="less_bar_bar_bar" format="1">
+  <advance width="2400"/>
+  <outline>
+    <contour>
+      <point x="846" y="98" type="line"/>
+      <point x="476" y="330" type="line"/>
+      <point x="476" y="334" type="line"/>
+      <point x="846" y="565" type="line"/>
+      <point x="846" y="715" type="line"/>
+      <point x="336" y="390" type="line"/>
+      <point x="336" y="274" type="line"/>
+      <point x="846" y="-51" type="line"/>
+    </contour>
+    <contour>
+      <point x="1048" y="-86" type="line"/>
+      <point x="1048" y="750" type="line"/>
+      <point x="896" y="750" type="line"/>
+      <point x="896" y="-86" type="line"/>
+    </contour>
+    <contour>
+      <point x="1498" y="-86" type="line"/>
+      <point x="1498" y="750" type="line"/>
+      <point x="1346" y="750" type="line"/>
+      <point x="1346" y="-86" type="line"/>
+    </contour>
+    <contour>
+      <point x="1948" y="-86" type="line"/>
+      <point x="1948" y="750" type="line"/>
+      <point x="1796" y="750" type="line"/>
+      <point x="1796" y="-86" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-31 11:29:08 +0000</string>
+    </dict>
+  </lib>
+</glyph>

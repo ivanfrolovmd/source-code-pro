@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="plus_plus" format="1">
+  <advance width="1200"/>
+  <outline>
+    <contour>
+      <point x="1116" y="270" type="line"/>
+      <point x="1116" y="390" type="line"/>
+      <point x="84" y="390" type="line"/>
+      <point x="84" y="270" type="line"/>
+    </contour>
+    <component base="plus" xOffset="519"/>
+    <component base="plus" xOffset="81"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-01-30 14:03:39 +0000</string>
+    </dict>
+  </lib>
+</glyph>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glyph name="equal_colon_equal" format="1">
+  <advance width="1800"/>
+  <outline>
+    <contour>
+      <point x="695" y="156" type="line"/>
+      <point x="695" y="268" type="line"/>
+      <point x="67" y="268" type="line"/>
+      <point x="67" y="156" type="line"/>
+    </contour>
+    <contour>
+      <point x="735" y="392" type="line"/>
+      <point x="735" y="504" type="line"/>
+      <point x="67" y="504" type="line"/>
+      <point x="67" y="392" type="line"/>
+    </contour>
+    <contour>
+      <point x="946" y="51"/>
+      <point x="1002" y="114"/>
+      <point x="1002" y="191" type="curve" smooth="yes"/>
+      <point x="1002" y="251"/>
+      <point x="962" y="297"/>
+      <point x="902" y="297" type="curve" smooth="yes"/>
+      <point x="820" y="297"/>
+      <point x="764" y="234"/>
+      <point x="764" y="157" type="curve" smooth="yes"/>
+      <point x="764" y="97"/>
+      <point x="804" y="51"/>
+      <point x="864" y="51" type="curve" smooth="yes"/>
+    </contour>
+    <contour>
+      <point x="1006" y="361"/>
+      <point x="1062" y="424"/>
+      <point x="1062" y="501" type="curve" smooth="yes"/>
+      <point x="1062" y="561"/>
+      <point x="1022" y="607"/>
+      <point x="962" y="607" type="curve" smooth="yes"/>
+      <point x="880" y="607"/>
+      <point x="824" y="544"/>
+      <point x="824" y="467" type="curve" smooth="yes"/>
+      <point x="824" y="407"/>
+      <point x="864" y="361"/>
+      <point x="924" y="361" type="curve" smooth="yes"/>
+    </contour>
+    <contour>
+      <point x="1733" y="156" type="line"/>
+      <point x="1733" y="268" type="line"/>
+      <point x="1090" y="268" type="line"/>
+      <point x="1090" y="156" type="line"/>
+    </contour>
+    <contour>
+      <point x="1733" y="392" type="line"/>
+      <point x="1733" y="504" type="line"/>
+      <point x="1130" y="504" type="line"/>
+      <point x="1130" y="392" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.ColorIndex</key>
+      <integer>4</integer>
+      <key>com.schriftgestaltung.Glyphs.lastChange</key>
+      <string>2018-02-03 02:11:27 +0000</string>
+      <key>public.markColor</key>
+      <string>0.67,0.95,0.38,1</string>
+    </dict>
+  </lib>
+</glyph>

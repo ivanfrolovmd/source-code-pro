@@ -5,5 +5,8 @@ RomanMasters/colors_2
 ItalicMasters/colors_0
 ItalicMasters/colors_1
 ItalicMasters/colors_2
-*.otf
 current.fpr
+
+.idea
+build
+.gradle
